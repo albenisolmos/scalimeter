@@ -1,0 +1,33 @@
+---
+interface Props {
+	href?: string
+}
+
+let { href } = Astro.props
+---
+<a target='_blank' class='relative h-10 w-auto border border-slate-200 rounded-full bg-white inline-flex items-center gap-2 min-w-6 px-2 text-sm text-left whitespace-nowrap'>
+	<slot/>
+</a>
+
+<style>
+	a {
+		background-image: linear-gradient(#B17461, #B17461);
+		background-position: 50% 50%;
+		background-repeat: no-repeat;
+		background-size: 0% 0%;
+		transition: background-size .5s, color .5s;
+	}
+
+	a:active {
+	  background-size: 100% 100%;
+	  color: #fff;
+	}
+
+
+
+	@keyframes bubble  {
+	   0%   { transform:scale(0.5); opacity:0.0; left:0}
+		50%  { transform:scale(1.2); opacity:0.5; left:100px}
+		100% { transform:scale(1.0); opacity:1.0; left:200px}
+	}
+</style>
