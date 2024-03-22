@@ -10,10 +10,6 @@ function createNumberStore(initialValue) {
     const old_set = store.set
 
     store.set = (value) => {
-		// FIX: stores should only set numbers
-		if (typeof(value) != 'number') {
-			console.error('Store received something other than number, this is a bug')
-		}
         old_set(Number(value))
     }
 
