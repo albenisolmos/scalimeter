@@ -13,33 +13,14 @@ const { title, description } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+	<title>{title}</title>
 	</head>
-	<body class="h-screen w-[30em] m-auto place-items-center flex flex-col items-center justify-start pt-[10%] px-4 bg-slate-100 dark:bg-slate-400">
+	<body class="h-screen w-[30em] m-auto place-items-center flex flex-col items-center justify-start pt-[10%] px-4 bg-slate-100 dark:bg-gray-900 dark:text-[#d8d8d8]">
 		<Header/>
-		<slot />
+	<slot />
 		<Footer />
 	</body>
 </html>
-
-<script is:inline>
-    const theme = (() => {
-        if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
-          return localStorage.getItem("theme");
-        }
-        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-          return "dark";
-        }
-        return "light";
-    })();
-
-    if (theme === "light") {
-        document.documentElement.classList.remove("dark");
-    } else {
-        document.documentElement.classList.add("dark");
-    }
-    window.localStorage.setItem("theme", theme);
-</script>
 
 <style is:global>
 @tailwind base;
@@ -62,18 +43,22 @@ const { title, description } = Astro.props;
 	.box.wrap {
 		@apply border-none;
 	}
-
-	.box.wrap > * {
-		@apply rounded-none;
+	.box.wrap > *:not(:first-child, :last-child) {
+		border-radius: 0;
 	}
 
-	.box.wrap > *:first-child {
-		@apply rounded-l-md;
+	.box.wrap > *:first-child:not(:only-child) {
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
 	}
 
-	.box.wrap > *:last-child {
-		@apply rounded-r-md;
+	.box.wrap > *:first-child:not(:focus) {
+		border-right: none;
 	}
 
+	.box.wrap > *:last-child:not(:only-child) {
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+	}
 }
 </style>
