@@ -1,9 +1,12 @@
 <script>
-	import InputUnit from '../components/InputUnit.svelte';
-	import {realDist, realDistUnit} from '../stores.js'
+import InputUnit from '../components/InputUnit.svelte';
+import {realDist, realDistUnit} from '../stores.js'
 </script>
 
-<InputUnit
-	placeholder='Real Distance'
-	bind:value={$realDist}
-	bind:unit={$realDistUnit}/>
+<div>
+	<label class='font-medium' for="input-unit-real">Real Distance</label>
+	<InputUnit
+		name='input-unit-real'
+		bind:value={$realDist}
+		bind:unit={$realDistUnit}/>
+</div>

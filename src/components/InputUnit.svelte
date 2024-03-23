@@ -16,7 +16,7 @@
 	}
 </script>
 
-<div class='box wrap w-full h-8 flex flex-shrink items-stretch'>
+<div class='box wrap w-full h-10 flex flex-shrink items-stretch'>
 	<Input type='number' inputmode='decimal' on:keyup={onKeyUp}  {placeholder} min='0' value={value} />
 	<DropdownUnits bind:unit />
 </div>
