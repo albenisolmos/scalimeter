@@ -3,7 +3,10 @@
 	import {scaledDist, scaledDistUnit} from '../stores.js'
 </script>
 
-<InputUnit
-	placeholder='Scaled Distance'
-	bind:value={$scaledDist}
-	bind:unit={$scaledDistUnit}/>
+<div>
+	<label class='font-medium' for="input-unit-scaled">Scaled Distance</label>
+	<InputUnit
+		name='input-unit-scaled'
+		bind:value={$scaledDist}
+		bind:unit={$scaledDistUnit}/>
+</div>

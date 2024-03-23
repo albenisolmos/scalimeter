@@ -2,7 +2,7 @@
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 
-const { title, description } = Astro.props;
+const { title, description } = Astro.props
 ---
 
 <!doctype html>
@@ -13,52 +13,54 @@ const { title, description } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-	<title>{title}</title>
+		<title>{title}</title>
 	</head>
-	<body class="h-screen w-[30em] m-auto place-items-center flex flex-col items-center justify-start pt-[10%] px-4 bg-slate-100 dark:bg-gray-900 dark:text-[#d8d8d8]">
-		<Header/>
-	<slot />
+	<body
+		class="m-auto flex h-screen w-[30em] flex-col place-items-center items-center justify-center bg-slate-100 px-4 dark:bg-gray-900 dark:text-[#d8d8d8]"
+	>
+		<Header />
+		<slot />
 		<Footer />
 	</body>
 </html>
 
 <style is:global>
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+	@tailwind base;
+	@tailwind components;
+	@tailwind utilities;
 
-@layer base {
-	@font-face {
-		font-family: RobotoMono;
-		font-weight: 400;
-		src: url('./fonts/RobotoMono/RobotoMono-VariableFont_wght.ttf');
-	}
-}
-
-@layer components {
-	.box {
-		@apply border border-gray-300 rounded-md;
+	@layer base {
+		@font-face {
+			font-family: RobotoMono;
+			font-weight: 400;
+			src: url('./fonts/RobotoMono/RobotoMono-VariableFont_wght.ttf');
+		}
 	}
 
-	.box.wrap {
-		@apply border-none;
-	}
-	.box.wrap > *:not(:first-child, :last-child) {
-		border-radius: 0;
-	}
+	@layer components {
+		.box {
+			@apply rounded-md border border-gray-300;
+		}
 
-	.box.wrap > *:first-child:not(:only-child) {
-		border-top-right-radius: 0;
-		border-bottom-right-radius: 0;
-	}
+		.box.wrap {
+			@apply border-none;
+		}
+		.box.wrap > *:not(:first-child, :last-child) {
+			border-radius: 0;
+		}
 
-	.box.wrap > *:first-child:not(:focus) {
-		border-right: none;
-	}
+		.box.wrap > *:first-child:not(:only-child) {
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+		}
 
-	.box.wrap > *:last-child:not(:only-child) {
-		border-top-left-radius: 0;
-		border-bottom-left-radius: 0;
+		.box.wrap > *:first-child:not(:focus) {
+			border-right: none;
+		}
+
+		.box.wrap > *:last-child:not(:only-child) {
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+		}
 	}
-}
 </style>
